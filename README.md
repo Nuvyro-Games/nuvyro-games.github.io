@@ -25,7 +25,7 @@ Store-required pages (static files in `public/`, copied as-is to `dist/`):
 
 - Overdrive privacy policy (ES/EN): https://nuvyro-games.github.io/games/overdrive/privacy.html
   (the old URL `/privacy/overdrive/` redirects there).
-- `app-ads.txt` (AdMob) goes in `public/app-ads.txt` once the AdMob publisher ID exists.
+- `app-ads.txt` (AdMob, publisher `pub-1574538615730500`): `public/app-ads.txt` → https://nuvyro-games.github.io/app-ads.txt
 
 After adding pages, run `yarn gen:sitemap` (Node 24+) to refresh `public/sitemap.xml`.
 
