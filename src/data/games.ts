@@ -24,6 +24,8 @@ export interface Game {
     trailer?: { label: string; url: string }
     /** Privacy policy page under /public (required by the app stores). */
     privacy?: { label: string; url: string }
+    /** Terms of service page under /public (optional for the stores). */
+    terms?: { label: string; url: string }
   }
 }
 
@@ -39,6 +41,7 @@ export const games: Game[] = [
     status: 'in development',
     links: {
       privacy: { label: 'Privacy policy', url: '/games/overdrive/privacy.html' },
+      terms: { label: 'Terms', url: '/games/overdrive/terms.html' },
     },
   },
 ]

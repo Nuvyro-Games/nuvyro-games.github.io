@@ -70,6 +70,14 @@ export function GameCard({ game }: { game: Game }) {
                 {game.links.privacy.label}
               </a>
             )}
+            {game.links.terms && (
+              <a
+                href={game.links.terms.url}
+                className="self-center px-1 text-sm text-starlight-dim underline-offset-4 transition-colors hover:text-starlight hover:underline"
+              >
+                {game.links.terms.label}
+              </a>
+            )}
           </div>
         )}
       </div>

@@ -10,10 +10,11 @@ const navLinks = [
 
 export function Footer() {
   const socials = site.socials.filter((s) => s.url)
-  // Políticas de privacidad de cada juego (las piden Google Play y App Store)
-  const legal = games
-    .filter((g) => g.links?.privacy)
-    .map((g) => ({ label: `${g.title} privacy`, href: g.links!.privacy!.url }))
+  // Páginas legales de cada juego (privacidad y términos; las piden Google Play y App Store)
+  const legal = games.flatMap((g) => [
+    ...(g.links?.privacy ? [{ label: `${g.title} privacy`, href: g.links.privacy.url }] : []),
+    ...(g.links?.terms ? [{ label: `${g.title} terms`, href: g.links.terms.url }] : []),
+  ])
   const year = new Date().getFullYear()
 
   return (

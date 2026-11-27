@@ -1,7 +1,7 @@
 /**
  * Run via `yarn gen:sitemap` after setting the production domain in
  * src/config/site.ts. Writes public/sitemap.xml with the site's routes:
- * the home page plus each game's privacy page (src/data/games.ts).
+ * the home page plus each game's privacy and terms pages (src/data/games.ts).
  * Runs on Node 24+ directly (native TypeScript type stripping).
  */
 import { writeFileSync } from 'node:fs'
@@ -20,7 +20,7 @@ const lastmod = new Date().toISOString().slice(0, 10)
 const urls = [
   base,
   ...games
-    .map((g) => g.links?.privacy?.url)
+    .flatMap((g) => [g.links?.privacy?.url, g.links?.terms?.url])
     .filter((u): u is string => Boolean(u))
     .map((u) => siteUrl(u)!),
 ]
